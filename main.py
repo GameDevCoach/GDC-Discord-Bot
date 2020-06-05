@@ -29,7 +29,7 @@ print('Connecting...')
 
 class Tim(commands.AutoShardedBot):
     def __init__(self, **kwargs):
-        super().__init__(command_prefix=kwargs.pop('command_prefix', ('t.', 'tim.')), case_insensitive=True, **kwargs)
+        super().__init__(command_prefix=kwargs.pop('command_prefix', ('t.', 'gdc.')), case_insensitive=True, **kwargs)
         self.session = ClientSession(loop=self.loop)
         self.start_time = datetime.datetime.utcnow()
         self.clean_text = commands.clean_content(escape_markdown=True, fix_channel_mentions=True)
@@ -53,7 +53,7 @@ class Tim(commands.AutoShardedBot):
     async def on_member_join(self, member):
         await self.wait_until_ready()
         if member.guild.id == 501090983539245061:
-            await self.welcomes.send(f"Welcome to the Tech With Tim Community {member.mention}!\n"
+            await self.welcomes.send(f"Welcome to the Game Dev Coach Community {member.mention}!\n"
                                      f"Members += 1\nCurrent # of members: {self.guild.member_count}")
 
     async def on_message(self, message):
@@ -141,4 +141,4 @@ class Tim(commands.AutoShardedBot):
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(Tim.setup())
+    loop.run_until_complete(GDC.setup())
